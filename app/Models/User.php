@@ -16,3 +16,4 @@ class User extends Model
     // Colunas que podem ser preenchidas em massa
     protected $fillable = ['name', 'email', 'password'];
 }
+

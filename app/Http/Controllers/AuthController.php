@@ -2,28 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
-use function Laravel\Prompts\password;
 
 class AuthController extends Controller
 {
     public function login()
     {
-        return view("login");
+        return view('login');
     }
 
     public function loginSubmit(Request $request)
     {
         // form validation
         $request->validate(
-            // rules
+        // rules
             [
-                "text_username" => 'required|email',
-                "text_password" => 'required|min:6|max:20',
+                'text_username' => 'required|email',
+                'text_password' => 'required|min:6|max:20',
             ],
             // errors messages
             [
@@ -36,8 +32,8 @@ class AuthController extends Controller
         );
 
         // get user input
-        $username = $request->input("text_username");
-        $password = $request->input("text_password");
+        $username = $request->input('text_username');
+        $password = $request->input('text_password');
 
         echo "usuario: $username";
         echo '<br>';
@@ -46,7 +42,7 @@ class AuthController extends Controller
 
         // busca o usuario no banco de dados
         $user = User::where('email', $username)
-            ->where('deleted_at', NULL)
+            ->where('deleted_at', null)
             ->first();
 
         // testa se o usuario existe
@@ -72,15 +68,16 @@ class AuthController extends Controller
         // cria a sessao do usuario
         session([
             'user' => [
-                'id'=> $user->id,
-                'email'=> $user->email,
-                'last_login'=> $user->last_login,
-            ]
+                'id' => $user->id,
+                'email' => $user->email,
+                'last_login' => $user->last_login,
+            ],
         ]);
     }
 
     public function logout()
     {
-        echo "logout";
+        session()->forget('user');
+        return redirect('/login');
     }
 }

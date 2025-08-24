@@ -1,0 +1,5 @@
+feat: Adiciona middleware para proteger rotas de autenticação
+
+- Adiciona o middleware `CheckIsNotLogged` para redirecionar usuários logados que tentarem acessar a página de login.
+- Aplica o middleware `CheckIsNotLogged` às rotas de login e de submissão de login.
+- Reorganiza os grupos de rotas para separar as rotas de autenticação das rotas principais da aplicação.

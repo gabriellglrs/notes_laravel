@@ -1,9 +1,0 @@
-feat: adiciona funcionalidade de anotações
-
-Adiciona o model Note e o seeder correspondente para permitir a criação de anotações.
-
-- Cria o model Note com os campos necessários.
-- Adiciona o seeder para popular o banco de dados com anotações de exemplo.
-- Estabelece o relacionamento hasMany entre User e Note.
-- Atualiza o DatabaseSeeder para incluir o NotesTableSeeder.
-- Adiciona um novo usuário de teste.

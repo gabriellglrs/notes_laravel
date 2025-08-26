@@ -28,6 +28,13 @@ class UsersTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'email' => 'teste@example.com',
+                'password' => Hash::make('teste'),
+                'last_login' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

@@ -5,20 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-/**
- *
- */
-class User extends Model
+class Note extends Model
 {
     use HasFactory;
 
     // Colunas que podem ser preenchidas em massa
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['text', 'title'];
 
-    public function notes()
+    public function user()
     {
-        return $this->hasMany(Note::class);
+        return $this->belongsTo(User::class);
     }
 }
-

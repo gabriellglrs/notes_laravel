@@ -2,28 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controllear;
 use App\Models\User;
 
 class MainController extends Controller
 {
     public function index()
     {
-        $id = session('user.id');
-        $usuario = User::find($id)->toArray();
-        $notes = User::find($id)->notes()->get()->toArray();
+        $id = session('user.id'); // pegando id do usuário logado
+        $user = User::find($id); // pegando usuário logado com base no id
 
-        echo '<prev>';
-        print_r($usuario);
-        print_r($notes);
+        // Carregando as notas do usuário
+        $notes = $user->notes()->latest()->get(); // ordena da mais recente para a mais antiga
 
-        // Pega o usuário autenticado
-//        $user = session('user');
-//          return view('home', compact('user'));
-    }
-
-    public function teste(): void
-    {
-        echo "deu certo teste";
+        return view('home', compact('user', 'notes'));
     }
 }

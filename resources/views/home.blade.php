@@ -28,12 +28,13 @@
 
                 <div class="row">
                     <div class="col">
+                        @foreach($notes as $note )
                         <div class="card p-4">
                             <div class="row">
                                 <div class="col">
-                                    <h4 class="text-info">Título da Nota</h4>
+                                    <h4 class="text-info">{{ $note->title }}</h4>
                                     <small class="text-secondary"><span class="opacity-75 me-2">Criado
-                                            em:</span><strong>00/00/0000 00:00:00</strong></small>
+                                            em:</span><strong>{{ $note->created_at->format('d/m/Y H:i:s') }}</strong></small>
                                 </div>
                                 <div class="col text-end">
                                     <a href="#" class="btn btn-outline-secondary btn-sm mx-1"><i
@@ -42,11 +43,11 @@
                                             class="fa-regular fa-trash-can"></i></a>
                                 </div>
                             </div>
+
                             <hr>
-                            <p class="text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia
-                                temporibus necessitatibus nesciunt quam repellat porro commodi autem veniam doloribus
-                                nostrum magni rerum, libero ullam maxime praesentium cum velit. Recusandae, aspernatur.</p>
+                            <p class="text-secondary">{{ $note->text }}</p>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

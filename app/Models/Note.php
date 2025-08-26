@@ -10,7 +10,7 @@ class Note extends Model
     use HasFactory;
 
     // Colunas que podem ser preenchidas em massa
-    protected $fillable = ['text', 'title'];
+    protected $fillable = ['user_id', 'text', 'title'];
 
     public function user()
     {

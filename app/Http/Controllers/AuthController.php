@@ -73,6 +73,8 @@ class AuthController extends Controller
                 'last_login' => $user->last_login,
             ],
         ]);
+
+        return redirect()->to('/login');
     }
 
     public function logout()

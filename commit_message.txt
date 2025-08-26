@@ -1,5 +1,8 @@
-feat: Adiciona middleware para proteger rotas de autenticação
+feat: Implementa a página inicial do usuário
 
-- Adiciona o middleware `CheckIsNotLogged` para redirecionar usuários logados que tentarem acessar a página de login.
-- Aplica o middleware `CheckIsNotLogged` às rotas de login e de submissão de login.
-- Reorganiza os grupos de rotas para separar as rotas de autenticação das rotas principais da aplicação.
+Este commit introduz a página inicial que é exibida ao usuário após o login.
+
+- O `MainController` foi atualizado para buscar os dados do usuário da sessão e renderizar a nova view `home.blade.php`.
+- A nova view `home.blade.php` foi criada para exibir as informações do usuário.
+- O `AuthController` agora redireciona explicitamente para a página de login em caso de falha na autenticação.
+- O nome do projeto foi corrigido no `package-lock.json`.

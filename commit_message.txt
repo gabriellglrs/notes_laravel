@@ -1,8 +1,7 @@
-feat: Implementa a página inicial do usuário
+refactor: Extrai a barra de navegação e nomeia as rotas
 
-Este commit introduz a página inicial que é exibida ao usuário após o login.
+Este commit melhora a modularidade e a manutenção do código.
 
-- O `MainController` foi atualizado para buscar os dados do usuário da sessão e renderizar a nova view `home.blade.php`.
-- A nova view `home.blade.php` foi criada para exibir as informações do usuário.
-- O `AuthController` agora redireciona explicitamente para a página de login em caso de falha na autenticação.
-- O nome do projeto foi corrigido no `package-lock.json`.
+- A barra de navegação superior foi extraída da view `home.blade.php` para um componente Blade reutilizável (`top_bar.blade.php`).
+- Todas as rotas no arquivo `routes/web.php` foram nomeadas para seguir as melhores práticas do Laravel, permitindo referências de URL mais robustas.
+- Pequenas melhorias de código, como a remoção de imports não utilizados, foram aplicadas ao `MainController`.

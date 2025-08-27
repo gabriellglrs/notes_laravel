@@ -19,7 +19,7 @@
                 @else
                     <!-- notas estão disponíveis -->
                     <div class="d-flex justify-content-end mb-3">
-                        <a href="#" class="btn btn-secondary px-3">
+                        <a href="{{ route('newNote') }}" class="btn btn-secondary px-3">
                             <i class="fa-regular fa-pen-to-square me-2"></i>Nova Nota
                         </a>
                     </div>

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,6 +16,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                'uuid' => Str::uuid(),
                 'email' => 'admin@example.com',
                 'password' => Hash::make('admin123'),
                 'last_login' => now(),
@@ -22,6 +24,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
+                'uuid' => Str::uuid(),
                 'email' => 'gabriel@example.com',
                 'password' => Hash::make('123456'),
                 'last_login' => null,
@@ -29,6 +32,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
+                'uuid' => Str::uuid(),
                 'email' => 'teste@example.com',
                 'password' => Hash::make('teste'),
                 'last_login' => now(),

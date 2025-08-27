@@ -16,7 +16,7 @@ class AuthController extends Controller
     {
         // form validation
         $request->validate(
-        // rules
+            // rules
             [
                 'text_username' => 'required|email',
                 'text_password' => 'required|min:6|max:20',
@@ -34,11 +34,6 @@ class AuthController extends Controller
         // get user input
         $username = $request->input('text_username');
         $password = $request->input('text_password');
-
-        echo "usuario: $username";
-        echo '<br>';
-        echo "password: $password";
-        echo '<br>';
 
         // busca o usuario no banco de dados
         $user = User::where('email', $username)
@@ -65,16 +60,16 @@ class AuthController extends Controller
         $user->last_login = date('Y-m-d H:i:s');
         $user->save();
 
-        // cria a sessao do usuario
+        // cria a sessao do usuario (usando UUID agora)
         session([
             'user' => [
-                'id' => $user->id,
+                'uuid' => $user->uuid, // Mudança: usando uuid em vez de id
                 'email' => $user->email,
                 'last_login' => $user->last_login,
             ],
         ]);
 
-        return redirect()->to('/login');
+        return redirect()->to('/');
     }
 
     public function logout()

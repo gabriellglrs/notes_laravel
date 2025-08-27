@@ -12,12 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('notes', function (Blueprint $table) {
-            $table->id()->autoIncrement();
-            $table->integer('user_id')->nullable();
+            $table->uuid('uuid')->primary();
+            $table->uuid('user_uuid');
             $table->string('text',3000)->nullable();
             $table->string('title',200)->nullable();
             $table->timestamps();
             $table->softDeletes();
+            
+            // Chave estrangeira
+            $table->foreign('user_uuid')->references('uuid')->on('users')->onDelete('cascade');
         });
     }
 

@@ -8,8 +8,8 @@ class MainController extends Controller
 {
     public function index()
     {
-        $id = session('user.id'); // pegando id do usuário logado
-        $user = User::find($id); // pegando usuário logado com base no id
+        $uuid = session('user.uuid'); // pegando uuid do usuário logado
+        $user = User::find($uuid); // pegando usuário logado com base no uuid
 
         // Carregando as notas do usuário
         $notes = $user->notes()->latest()->get(); // ordena da mais recente para a mais antiga

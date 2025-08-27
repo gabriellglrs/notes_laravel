@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id()->autoIncrement();
+            $table->uuid('uuid')->primary();
             $table->string('email', 50)->unique();
             $table->string('password', 200)->nullable();
             $table->string('last_login')->nullable();
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->softDeletes();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      */

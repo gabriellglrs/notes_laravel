@@ -34,7 +34,7 @@
                             @enderror
                             <div class="mb-3">
                                 <label class="form-label">Note Text</label>
-                                <textarea class="form-control bg-primary text-white" name="text_note" rows="5"></textarea>
+                                <textarea class="form-control bg-primary text-white" name="text_text" rows="5"></textarea>
                             </div>
                             @error('text_text')
                             <div class="text-danger">{{ $message }}</div>

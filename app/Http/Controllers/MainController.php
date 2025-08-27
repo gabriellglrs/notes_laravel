@@ -47,6 +47,15 @@ class MainController extends Controller
                 'text_text.max' => 'O texto deve ter no maximo 3000 caracteres',
             ]
         );
+
+        $uuid = session('user.uuid'); // pegando uuid do usuário logado
+        $note = new Note();
+        $note->user_uuid = $uuid;
+        $note->title = $request->text_title;
+        $note->text = $request->text_text;
+        $note->save();
+
+        return redirect()->route('home')->with('success', 'Nota criada com sucesso!');
     }
 
     public function editNote($uuid)

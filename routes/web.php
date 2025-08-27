@@ -18,6 +18,10 @@ Route::middleware([CheckIsLogged::class])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/newNote', [MainController::class, 'newNote'])->name('newNote');
     Route::post('/newNoteSubmit', [MainController::class, 'newNoteSubmit'])->name('newNoteSubmit');
+
+    // Rotas de edição separadas
     Route::get('/editNote/{uuid}', [MainController::class, 'editNote'])->name('editNote');
+    Route::put('/editNote/{uuid}', [MainController::class, 'editNoteSubmit'])->name('editNoteSubmit');
+
     Route::delete('/deleteNote/{uuid}', [MainController::class, 'deleteNote'])->name('deleteNote');
 });

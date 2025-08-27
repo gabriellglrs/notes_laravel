@@ -58,9 +58,48 @@ class MainController extends Controller
         return redirect()->route('home')->with('success', 'Nota criada com sucesso!');
     }
 
+    public function editNoteSubmit(Request $request, $uuid)
+    {
+        // Validação
+        $request->validate([
+            'text_title' => 'required|min:3|max:200',
+            'text_text' => 'required|min:3|max:3000',
+        ], [
+            'text_title.required' => 'O titulo e obrigatorio',
+            'text_title.min' => 'O titulo deve ter no minimo 3 caracteres',
+            'text_title.max' => 'O titulo deve ter no maximo 200 caracteres',
+            'text_text.required' => 'O texto e obrigatorio',
+            'text_text.min' => 'O texto deve ter no minimo 3 caracteres',
+            'text_text.max' => 'O texto deve ter no maximo 3000 caracteres',
+        ]);
+
+        $user = session('user');
+        $note = Note::where('uuid', $uuid)->firstOrFail();
+
+        // Verificar se a nota pertence ao usuário
+        if ($note->user_uuid !== $user['uuid']) {
+            abort(403, 'Acesso negado');
+        }
+
+        // Atualizar a nota
+        $note->title = $request->text_title;
+        $note->text = $request->text_text;
+        $note->save();
+
+        return redirect()->route('home')->with('success', 'Nota atualizada com sucesso!');
+    }
+
     public function editNote($uuid)
     {
+        $user = session('user');
+        $note = Note::where('uuid', $uuid)->firstOrFail();
 
+        // Verificar se a nota pertence ao usuário
+        if ($note->user_uuid !== $user['uuid']) {
+            abort(403, 'Acesso negado');
+        }
+
+        return view('edit_note', compact('note', 'user'));
     }
 
     public function deleteNote($uuid)

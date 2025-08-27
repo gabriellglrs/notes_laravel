@@ -8,10 +8,17 @@
                              em:</span><strong>{{ $note->created_at->format('d/m/Y H:i:s') }}</strong></small>
                  </div>
                  <div class="col text-end">
-                     <a href="/edit/{{ $note->uuid  }}" class="btn btn-outline-secondary btn-sm mx-1"><i
+                     <a href="{{ route('editNote', $note->uuid) }}" class="btn btn-outline-secondary btn-sm mx-1"><i
                              class="fa-regular fa-pen-to-square"></i></a>
-                     <a href="/delete/{{ $note->uuid  }}" class="btn btn-outline-danger btn-sm mx-1"><i
-                             class="fa-regular fa-trash-can"></i></a>
+
+                     {{-- Botão de deletar --}}
+                     <form action="{{ route('deleteNote', $note->uuid) }}" method="POST" style="display:inline;">
+                         @csrf
+                         @method('DELETE')
+                         <button type="submit" class="btn btn-outline-danger btn-sm mx-1">
+                             <i class="fa-regular fa-trash-can"></i>
+                         </button>
+                     </form>
                  </div>
              </div>
 

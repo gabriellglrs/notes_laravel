@@ -7,7 +7,7 @@
 
                     <!-- logo -->
                     <div class="text-center p-3">
-                        <img src="assets/images/logo.png" alt="Notes logo">
+                        <img src="{{ url('logo.png') }}" alt="Logo do Notas">
                     </div>
 
                     <!-- form -->

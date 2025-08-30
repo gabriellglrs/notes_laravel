@@ -9,7 +9,7 @@
                     @if ($note->updated_at != $note->created_at)
                         <br>
                         <small class="text-secondary"><span class="opacity-75 me-2">Última atualização
-                                em:</span><strong>{{ $note->updated_at->format('d/m/Y H:i:s') }}</strong>
+                                em:</span><strong>{{ $note->updated_at->format('d/m/Y H:i') }}</strong>
                     @endif
                 </div>
                 <div class="col text-end">
@@ -17,9 +17,8 @@
                             class="fa-regular fa-pen-to-square"></i></a>
 
                     {{-- Botão de deletar --}}
-                    <form action="{{ route('deleteNote', $note->uuid) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('deleteNoteConfirm', $note->uuid) }}" method="GET" style="display:inline;">
                         @csrf
-                        @method('DELETE')
                         <button type="submit" class="btn btn-outline-danger btn-sm mx-1">
                             <i class="fa-regular fa-trash-can"></i>
                         </button>

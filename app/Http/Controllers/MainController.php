@@ -108,6 +108,15 @@ class MainController extends Controller
         return view('edit_note', compact('note', 'user'));
     }
 
+    public function deleteNoteConfirm($uuid)
+    {
+        $user = session('user');
+        $note = Note::where('uuid', $uuid)->firstOrFail();
+
+        return view('delete-note-confirm', compact('note', 'user'));
+    }
+
+    // O método deleteNote permanece igual:
     public function deleteNote($uuid)
     {
         $note = Note::where('uuid', $uuid)->firstOrFail();

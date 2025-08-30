@@ -24,4 +24,5 @@ Route::middleware([CheckIsLogged::class])->group(function () {
     Route::put('/editNote/{uuid}', [MainController::class, 'editNoteSubmit'])->name('editNoteSubmit');
 
     Route::delete('/deleteNote/{uuid}', [MainController::class, 'deleteNote'])->name('deleteNote');
+    Route::get('/deleteNoteConfirm/{uuid}', [MainController::class, 'deleteNoteConfirm'])->name('deleteNoteConfirm');
 });

@@ -1,7 +1,7 @@
 <div class="row mb-3 align-items-center">
     <div class="col">
         <a href="{{ route('home') }}">
-            <img src="assets/images/logo.png" alt="Logo do Notas">
+            <img src="{{ url('images/logo.png') }}" alt="Logo do Notas">
         </a>
     </div>
     <div class="col text-center">

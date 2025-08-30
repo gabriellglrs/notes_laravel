@@ -3,11 +3,41 @@
 <img width="1584" height="396" alt="LinkedIn cover - 29" src="https://github.com/user-attachments/assets/d1c05723-0bec-4ce7-8dee-1ef8c95ebf3e" />
 
 <br>
-<br>
 
 # 📝 Sistema de Notas Laravel
 
 Um sistema simples e elegante de gerenciamento de notas pessoais desenvolvido em Laravel, com autenticação segura e interface intuitiva.
+
+<br>
+<br>
+
+# 📱 Screenshots
+
+### Tela de Login
+
+<img width="1909" height="945" alt="image" src="https://github.com/user-attachments/assets/5729ace8-c19c-425e-82cf-63d5df0dce2b" />
+
+
+### Dashboard
+
+<img width="1909" height="953" alt="image" src="https://github.com/user-attachments/assets/5aecbe82-3c96-4e64-b437-fcd9c987fb13" />
+
+
+### Nova Nota
+
+<img width="1906" height="950" alt="image" src="https://github.com/user-attachments/assets/a0cf2120-fd64-4f42-967d-3ed069302714" />
+
+
+### Editar Nota
+
+<img width="1891" height="952" alt="image" src="https://github.com/user-attachments/assets/6e84fb50-7ae9-44dc-8a4b-c23626436703" />
+
+### Deletar Nota
+
+<img width="1901" height="955" alt="image" src="https://github.com/user-attachments/assets/48442652-741e-4248-8469-f95159918fa9" />
+
+
+---
 
 ## ✨ Funcionalidades
 
@@ -290,26 +320,6 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ---
 
 ⭐ **Se este projeto foi útil para você, deixe uma estrela no repositório!**
-
-## 📱 Screenshots
-
-### Tela de Login
-
-![Login](screenshots/login.png)
-
-### Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-
-### Nova Nota
-
-![Nova Nota](screenshots/nova-nota.png)
-
-### Editar Nota
-
-![Editar](screenshots/editar-nota.png)
-
----
 
 _Desenvolvido com ❤️ usando Laravel_
 

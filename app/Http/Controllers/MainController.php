@@ -13,6 +13,12 @@ class MainController extends Controller
         $uuid = session('user.uuid'); // pegando uuid do usuário logado
         $user = User::find($uuid); // pegando usuário logado com base no uuid
 
+        // Verificando se o usuário está logado
+        if ($user == null) {
+            session()->forget('user');
+            return redirect()->route('login'); // usuário não encontrado, força login
+        }
+
         // Carregando as notas do usuário
         $notes = $user->notes()->latest()->get(); // ordena da mais recente para a mais antiga
 
@@ -32,7 +38,7 @@ class MainController extends Controller
     {
         // validação do formulário
         $request->validate(
-        // rules
+            // rules
             [
                 'text_title' => 'required|min:3|max:200',
                 'text_text' => 'required|min:3|max:3000',
@@ -76,8 +82,8 @@ class MainController extends Controller
         $user = session('user');
         $note = Note::where('uuid', $uuid)->firstOrFail();
 
-        // Verificar se a nota pertence ao usuário
-        if ($note->user_uuid !== $user['uuid']) {
+        // Verificar se a nota pertence ao usuário logado
+        if ($note->user_uuid != session('user.uuid')) {
             abort(403, 'Acesso negado');
         }
 

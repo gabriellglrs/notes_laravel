@@ -5,7 +5,12 @@
                 <div class="col">
                     <h4 class="text-info">{{ $note->title }}</h4>
                     <small class="text-secondary"><span class="opacity-75 me-2">Criado
-                             em:</span><strong>{{ $note->created_at->format('d/m/Y H:i:s') }}</strong></small>
+                            em:</span><strong>{{ $note->created_at->format('d/m/Y H:i') }}</strong></small>
+                    @if ($note->updated_at != $note->created_at)
+                        <br>
+                        <small class="text-secondary"><span class="opacity-75 me-2">Última atualização
+                                em:</span><strong>{{ $note->updated_at->format('d/m/Y H:i:s') }}</strong>
+                    @endif
                 </div>
                 <div class="col text-end">
                     <a href="{{ route('editNote', $note->uuid) }}" class="btn btn-outline-secondary btn-sm mx-1"><i
